@@ -87,6 +87,11 @@ public class JobView {
     }
 
     @JsonProperty
+    public String elapsedSinceLastBuild() {
+        return formatted(lastCompletedBuild().elapsedSinceLastBuild());
+    }
+
+    @JsonProperty
     public String estimatedDuration() {
         return formatted(lastBuild().estimatedDuration());
     }

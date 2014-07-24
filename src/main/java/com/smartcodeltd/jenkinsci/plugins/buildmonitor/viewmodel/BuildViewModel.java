@@ -17,6 +17,7 @@ public interface BuildViewModel {
     public int progress();
 
     public boolean hasPreviousBuild();
+    public Duration elapsedSinceLastBuild();
     public BuildViewModel previousBuild();
 
     public Set<String> culprits();
