@@ -97,6 +97,13 @@ public class BuildView implements BuildViewModel {
     }
 
     @Override
+    public Duration elapsedSinceLastBuild() {
+        return new Duration(now()
+                - (build.getTimestamp().getTimeInMillis()
+                  + build.getDuration()));
+    }
+
+    @Override
     public BuildViewModel previousBuild() {
         return new BuildView(build.getPreviousBuild(), augmentor, systemTime);
     }

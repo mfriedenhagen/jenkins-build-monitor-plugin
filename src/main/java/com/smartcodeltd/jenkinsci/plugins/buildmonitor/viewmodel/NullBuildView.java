@@ -54,6 +54,11 @@ public class NullBuildView implements BuildViewModel {
     }
 
     @Override
+    public Duration elapsedSinceLastBuild() {
+        return null;
+    }
+
+    @Override
     public BuildViewModel previousBuild() {
         return null;
     }
