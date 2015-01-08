@@ -168,6 +168,24 @@ public class JobViewTest {
     }
 
     @Test
+    public void should_know_how_long_since_the_last_build() throws Exception {
+        String startTime =             "13:00:00";
+        view = JobView.of(a(job().whereTheLast(build().startedAt(startTime).andTook(25).finishedWith(SUCCESS))),
+                assumingThatCurrentTimeIs("14:00:00"));
+
+        assertThat(view.elapsedSinceLastBuild(), is("35m 0s"));
+    }
+
+    @Test
+    public void should_know_how_long_since_the_last_failed_build() throws Exception {
+        String startTime = "13:00:00";
+        view = JobView.of(a(job().whereTheLast(build().startedAt(startTime).andTook(25).finishedWith(FAILURE))),
+                assumingThatCurrentTimeIs("14:00:00"));
+
+        assertThat(view.elapsedSinceLastBuild(), is("35m 0s"));
+    }
+
+    @Test
     public void should_know_how_long_the_last_build_took_once_its_finished() throws Exception {
         view = JobView.of(a(job().whereTheLast(build().finishedWith(SUCCESS).andTook(3))));
 

@@ -199,21 +199,18 @@ h2 {
         transparent 75%, transparent);
 }
 
-
-.build-monitor #job-views .build-time,
-.build-monitor #job-views .build-name {
-    font-weight: bold;
-    color:rgba(255,255,255, 0.3);
-}
+.build-monitor #job-views .running .build-estimate,
 .build-monitor #job-views .running .build-time,
 .build-monitor #job-views .running .build-name {
     font-weight: bold;
     color:rgba(255,255,255, 0.5);
 }
-.build-monitor #job-views .build-name { font-size: 2em; line-height: 1.75em; }
-.build-monitor #job-views .build-time { font-size: 2em; line-height: 1.75em; }
-.build-monitor #job-views .build-time>.elapsed       { font-size: 1.0em; color:rgba(255,255,255,0.7); }
-.build-monitor #job-views .build-time>.elapsed:after { content:"|"; margin-left:0.1em; font-weight: normal; }
+.build-monitor #job-views .build-estimate,
+.build-monitor #job-views .build-name,
+.build-monitor #job-views .build-time {
+	font-size: 2em;
+	line-height: 1.75em;
+}
 
 .build-monitor footer {
     padding: 0 8px;
@@ -394,6 +391,7 @@ h2 {
     border-radius: 0;
 }
 
+.build-monitor #job-views .build-estimate,
 .build-monitor #job-views .build-time,
 .build-monitor #job-views .build-name {
     display:block;
@@ -402,6 +400,7 @@ h2 {
 .build-monitor #job-views .build-time {
     vertical-align: middle;
 }
+.build-monitor #job-views .build-estimate { top:0; left:0.3em }
 .build-monitor #job-views .build-name { bottom:0; left:0.3em; }
 .build-monitor #job-views .build-time { bottom:0; right:0.3em; }
 
